@@ -4,6 +4,7 @@ import { transactionsInMonth, monthTotals, expenseByCategory } from '../domain/m
 import { findCategory } from '../config/categories.js';
 import { t } from '../ui/ruby.js';
 import { esc, on } from '../ui/dom.js';
+import { catIcon } from '../ui/categoryIcon.js';
 import { dateLabel, monthLabel, money } from '../ui/format.js';
 
 export function render(root, { store, navigate, params }) {
@@ -43,7 +44,7 @@ export function render(root, { store, navigate, params }) {
             ${byCat.length ? `<ul class="bars">${byCat.map((c) => {
               const cat = findCategory('expense', c.categoryId);
               return `<li class="bar-row">
-                <span class="bar-label">${cat.icon} ${t(cat.label)}</span>
+                <span class="bar-label">${catIcon(cat)} ${t(cat.label)}</span>
                 <span class="bar"><span class="bar-fill" style="width:${(c.amount / maxCat) * 100}%;background:${cat.color}"></span></span>
                 <span class="bar-value">${money(c.amount)}</span></li>`;
             }).join('')}</ul>` : `<p class="muted">${t('まだありません')}</p>`}
@@ -56,7 +57,7 @@ export function render(root, { store, navigate, params }) {
               <ul class="tx-list">${g.items.map((x) => {
                 const c = findCategory(x.type, x.categoryId);
                 return `<li><button type="button" class="tx-row" data-id="${esc(x.id)}">
-                  <span class="tx-icon" style="background:${c.color}">${c.icon}</span>
+                  <span class="tx-icon" style="background:${c.color}">${catIcon(c)}</span>
                   <span class="tx-text">${t(c.label)}${x.memo ? `<small>${esc(x.memo)}</small>` : ''}</span>
                   <span class="tx-amount ${x.type}">${x.type === 'expense' ? '-' : '+'}${money(x.amount)}</span>
                 </button></li>`;

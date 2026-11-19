@@ -112,6 +112,8 @@
   line-height: 1.3; padding: 6px;
 }
 .cat-icon { font-size: 1.9rem; }
+/* カテゴリ画像（絵文字と同じ大きさで表示） */
+.cat-img { width: 1.2em; height: 1.2em; vertical-align: -0.2em; }
 .cat-label { font-size: 0.95rem; }
 .cat.active { border-color: var(--cat-color); background: color-mix(in srgb, var(--cat-color) 18%, white); font-weight: bold; }
 

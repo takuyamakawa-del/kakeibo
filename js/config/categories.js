@@ -1,10 +1,11 @@
 // カテゴリ定義。ここに1行足すだけでカテゴリを増やせる。
 // id は保存データに残るので、一度使ったら変更しないこと（表示名・アイコンは変更OK）。
 // label は ruby.js の t() でふりがなが付く（読みは config/furigana.js）。
+// icon は絵文字。image（画像のパス）を書くと、絵文字の代わりにその画像が表示される。
 
 export const CATEGORIES = {
   expense: [
-    { id: 'snack',      label: 'おかし',     icon: '🍬', color: '#ff9f43' },
+    { id: 'snack',      label: 'おかし',     icon: '🍟', image: 'assets/categories/chips.svg', color: '#ff9f43' },
     { id: 'toy',        label: 'おもちゃ',   icon: '🧸', color: '#ee5a6f' },
     { id: 'book',       label: '本・まんが', icon: '📚', color: '#4b7bec' },
     { id: 'game',       label: 'ゲーム',     icon: '🎮', color: '#8854d0' },

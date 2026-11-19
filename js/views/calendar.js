@@ -7,6 +7,7 @@ import { findCategory } from '../config/categories.js';
 import { t, r } from '../ui/ruby.js';
 import { esc, on, yen } from '../ui/dom.js';
 import { dateLabel, monthLabel, money, days, WEEKDAYS } from '../ui/format.js';
+import { catIcon } from '../ui/categoryIcon.js';
 import { showModal, toast } from '../ui/dialog.js';
 
 export function render(root, { store, navigate, params }) {
@@ -59,7 +60,7 @@ export function render(root, { store, navigate, params }) {
     const list = txs.length
       ? `<ul class="day-list">${txs.map((x) => {
         const c = findCategory(x.type, x.categoryId);
-        return `<li><span>${c.icon} ${t(c.label)}${x.memo ? `（${esc(x.memo)}）` : ''}</span>
+        return `<li><span>${catIcon(c)} ${t(c.label)}${x.memo ? `（${esc(x.memo)}）` : ''}</span>
           <span class="${x.type}">${x.type === 'expense' ? '-' : '+'}${money(x.amount)}</span></li>`;
       }).join('')}</ul>`
       : `<p class="muted">${t('記録はありません')}</p>`;

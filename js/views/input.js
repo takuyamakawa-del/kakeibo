@@ -6,6 +6,7 @@ import { MAX_AMOUNT, MAX_MEMO } from '../store/store.js';
 import { t } from '../ui/ruby.js';
 import { esc, on, yen } from '../ui/dom.js';
 import { dateLabel } from '../ui/format.js';
+import { catIcon } from '../ui/categoryIcon.js';
 import { createNumpad } from '../ui/numpad.js';
 import { confirmDialog, toast } from '../ui/dialog.js';
 
@@ -78,7 +79,7 @@ export function render(root, { store, navigate, params }) {
     if (!CATEGORIES[form.type].some((c) => c.id === form.categoryId)) form.categoryId = null;
     $('.category-grid').innerHTML = CATEGORIES[form.type].map((c) => `
       <button type="button" class="cat ${c.id === form.categoryId ? 'active' : ''}" data-cat="${c.id}" style="--cat-color:${c.color}">
-        <span class="cat-icon">${c.icon}</span><span class="cat-label">${t(c.label)}</span>
+        <span class="cat-icon">${catIcon(c)}</span><span class="cat-label">${t(c.label)}</span>
       </button>`).join('');
   }
 
