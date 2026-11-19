@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="あかちゃん">
+  <title>あかちゃん</title><ellipse cx="100" cy="194" rx="50" ry="6" fill="#000" opacity="0.08"/>
+  <ellipse cx="100" cy="108" rx="52" ry="46" fill="#ffb347" stroke="#e8892b" stroke-width="4"/>
+  <ellipse cx="81.8" cy="87.3" rx="13.0" ry="6.8999999999999995" fill="#fff" opacity="0.35"/>
+  <path d="M100 68 L100 52" stroke="#4caf50" stroke-width="4" stroke-linecap="round"/>
+  <path d="M100 56 C106 34 130 30 130 42 C124 54 110 58 100 56 Z" fill="#7bd87b"/>
+  
+  <g class="face-normal">
+    <circle cx="85.6" cy="100.4" r="4.5" fill="#4a3428"/>
+    <circle cx="114.4" cy="100.4" r="4.5" fill="#4a3428"/>
+    <circle cx="87.03999999999999" cy="98.78" r="1.4400000000000002" fill="#fff"/>
+    <circle cx="115.84" cy="98.78" r="1.4400000000000002" fill="#fff"/>
+    <path d="M95.5 111.2 Q100 114.8 104.5 111.2" stroke="#4a3428" stroke-width="2.16" fill="none" stroke-linecap="round"/>
+    <ellipse cx="76.6" cy="109.4" rx="5.4" ry="3.15" fill="#ff8fab" opacity="0.5"/>
+    <ellipse cx="123.4" cy="109.4" rx="5.4" ry="3.15" fill="#ff8fab" opacity="0.5"/>
+  </g>
+  <g class="face-smile" display="none">
+    <path d="M80.19999999999999 102.2 Q85.6 94.10000000000001 91.0 102.2" stroke="#4a3428" stroke-width="2.7" fill="none" stroke-linecap="round"/>
+    <path d="M109.0 102.2 Q114.4 94.10000000000001 119.80000000000001 102.2" stroke="#4a3428" stroke-width="2.7" fill="none" stroke-linecap="round"/>
+    <path d="M92.8 109.4 Q100 120.2 107.2 109.4 Z" fill="#4a3428"/>
+    <path d="M96.4 114.8 Q100 118.4 103.6 114.8 Z" fill="#ff6b81"/>
+    <ellipse cx="76.6" cy="109.4" rx="6.3" ry="4.05" fill="#ff8fab" opacity="0.85"/>
+    <ellipse cx="123.4" cy="109.4" rx="6.3" ry="4.05" fill="#ff8fab" opacity="0.85"/>
+  </g>
+  <path d="M42 130 L60 118 L76 132 L94 116 L110 132 L128 116 L146 130 L160 122 C162 168 134 190 100 190 C66 190 38 168 42 130 Z" fill="#fff6e0" stroke="#f0d9a8" stroke-width="4"/>
+  <circle cx="70" cy="164" r="8" fill="#ffb347" opacity="0.7"/>
+  <circle cx="134" cy="160" r="6" fill="#ffb347" opacity="0.7"/>
+</svg>

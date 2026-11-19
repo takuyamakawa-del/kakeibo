@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="たまご">
+  <title>たまご</title>
+  <ellipse cx="100" cy="190" rx="52" ry="7" fill="#000" opacity="0.08"/>
+  <path d="M100 22 C140 22 164 90 164 128 C164 166 136 188 100 188 C64 188 36 166 36 128 C36 90 60 22 100 22 Z" fill="#fff6e0" stroke="#f0d9a8" stroke-width="4"/>
+  <circle cx="72" cy="72" r="9" fill="#ffb347" opacity="0.7"/>
+  <circle cx="132" cy="96" r="12" fill="#ffb347" opacity="0.7"/>
+  <circle cx="64" cy="150" r="10" fill="#ffb347" opacity="0.7"/>
+  <circle cx="138" cy="158" r="7" fill="#ffb347" opacity="0.7"/>
+  <g class="face-normal">
+    <circle cx="87.2" cy="116.8" r="4.0" fill="#4a3428"/>
+    <circle cx="112.8" cy="116.8" r="4.0" fill="#4a3428"/>
+    <circle cx="88.48" cy="115.36" r="1.2800000000000002" fill="#fff"/>
+    <circle cx="114.08" cy="115.36" r="1.2800000000000002" fill="#fff"/>
+    <path d="M96.0 126.4 Q100 129.6 104.0 126.4" stroke="#4a3428" stroke-width="1.92" fill="none" stroke-linecap="round"/>
+    <ellipse cx="79.2" cy="124.8" rx="4.800000000000001" ry="2.8000000000000003" fill="#ff8fab" opacity="0.5"/>
+    <ellipse cx="120.8" cy="124.8" rx="4.800000000000001" ry="2.8000000000000003" fill="#ff8fab" opacity="0.5"/>
+  </g>
+  <g class="face-smile" display="none">
+    <path d="M82.4 118.39999999999999 Q87.2 111.2 92.0 118.39999999999999" stroke="#4a3428" stroke-width="2.4000000000000004" fill="none" stroke-linecap="round"/>
+    <path d="M108.0 118.39999999999999 Q112.8 111.2 117.6 118.39999999999999" stroke="#4a3428" stroke-width="2.4000000000000004" fill="none" stroke-linecap="round"/>
+    <path d="M93.6 124.8 Q100 134.4 106.4 124.8 Z" fill="#4a3428"/>
+    <path d="M96.8 129.6 Q100 132.8 103.2 129.6 Z" fill="#ff6b81"/>
+    <ellipse cx="79.2" cy="124.8" rx="5.6000000000000005" ry="3.6" fill="#ff8fab" opacity="0.85"/>
+    <ellipse cx="120.8" cy="124.8" rx="5.6000000000000005" ry="3.6" fill="#ff8fab" opacity="0.85"/>
+  </g>
+</svg>

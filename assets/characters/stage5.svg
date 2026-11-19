@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="おとな">
+  <title>おとな</title><ellipse cx="100" cy="192" rx="62" ry="7" fill="#000" opacity="0.08"/><ellipse cx="72" cy="182" rx="18" ry="10" fill="#e8892b"/><ellipse cx="128" cy="182" rx="18" ry="10" fill="#e8892b"/><ellipse cx="34" cy="120" rx="13" ry="22" fill="#ffb347" stroke="#e8892b" stroke-width="4" transform="rotate(30 34 120)"/><ellipse cx="166" cy="112" rx="13" ry="22" fill="#ffb347" stroke="#e8892b" stroke-width="4" transform="rotate(-40 166 112)"/>
+  <ellipse cx="100" cy="112" rx="68" ry="72" fill="#ffb347" stroke="#e8892b" stroke-width="4"/>
+  <ellipse cx="76.2" cy="79.6" rx="17.0" ry="10.799999999999999" fill="#fff" opacity="0.35"/><path d="M48 128 Q100 150 152 128 L150 142 Q100 164 50 142 Z" fill="#4b7bec"/><path d="M128 140 L140 170 L124 166 Z" fill="#3867d6"/>
+  <path d="M100 42 L100 26" stroke="#4caf50" stroke-width="4" stroke-linecap="round"/>
+  <path d="M100 30 C106 8 130 4 130 16 C124 28 110 32 100 30 Z" fill="#7bd87b"/>
+  <path d="M100 38 C74 24 70 10 86 8 C94 18 98 28 100 38 Z" fill="#6ccf6c"/>
+  <g class="face-normal">
+    <circle cx="82.4" cy="87.6" r="5.5" fill="#4a3428"/>
+    <circle cx="117.6" cy="87.6" r="5.5" fill="#4a3428"/>
+    <circle cx="84.16000000000001" cy="85.61999999999999" r="1.7600000000000002" fill="#fff"/>
+    <circle cx="119.36" cy="85.61999999999999" r="1.7600000000000002" fill="#fff"/>
+    <path d="M94.5 100.8 Q100 105.2 105.5 100.8" stroke="#4a3428" stroke-width="2.64" fill="none" stroke-linecap="round"/>
+    <ellipse cx="71.4" cy="98.6" rx="6.6000000000000005" ry="3.8500000000000005" fill="#ff8fab" opacity="0.5"/>
+    <ellipse cx="128.6" cy="98.6" rx="6.6000000000000005" ry="3.8500000000000005" fill="#ff8fab" opacity="0.5"/>
+  </g>
+  <g class="face-smile" display="none">
+    <path d="M75.80000000000001 89.8 Q82.4 79.89999999999999 89.0 89.8" stroke="#4a3428" stroke-width="3.3000000000000003" fill="none" stroke-linecap="round"/>
+    <path d="M111.0 89.8 Q117.6 79.89999999999999 124.19999999999999 89.8" stroke="#4a3428" stroke-width="3.3000000000000003" fill="none" stroke-linecap="round"/>
+    <path d="M91.2 98.6 Q100 111.8 108.8 98.6 Z" fill="#4a3428"/>
+    <path d="M95.6 105.2 Q100 109.6 104.4 105.2 Z" fill="#ff6b81"/>
+    <ellipse cx="71.4" cy="98.6" rx="7.700000000000001" ry="4.95" fill="#ff8fab" opacity="0.85"/>
+    <ellipse cx="128.6" cy="98.6" rx="7.700000000000001" ry="4.95" fill="#ff8fab" opacity="0.85"/>
+  </g>
+  <circle cx="100" cy="166" r="12" fill="#ffd54f" stroke="#e0a800" stroke-width="3"/>
+  <text x="100" y="170.56" font-size="13.200000000000001" text-anchor="middle" font-weight="bold" fill="#b07800" font-family="sans-serif">¥</text>
+</svg>

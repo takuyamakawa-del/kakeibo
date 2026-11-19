@@ -1,0 +1,197 @@
+/* 共通スタイル：色・サイズの変数、リセット、ボタン・カード・モーダル・タブバー */
+
+:root {
+  --bg: #fff8ec;
+  --surface: #ffffff;
+  --text: #3b2f2a;
+  --muted: #8a7b72;
+  --line: #f0e2cf;
+  --primary: #ff8c42;
+  --primary-dark: #e86f20;
+  --income: #2d98da;
+  --expense: #eb5a46;
+  --nospend: #ff7eb3;
+  --nospend-bg: #ffe6f1;
+  --good: #20bf6b;
+  --danger: #d63031;
+  --radius: 20px;
+  --shadow: 0 4px 0 rgba(120, 80, 40, 0.10), 0 8px 24px rgba(120, 80, 40, 0.08);
+  --tap: 56px;              /* 押しやすいボタンの高さ */
+  --tabbar-h: 76px;
+  --font: "Hiragino Maru Gothic ProN", "Hiragino Sans", "BIZ UDPGothic", "Yu Gothic UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 20px;
+  line-height: 1.6;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation; /* ダブルタップでズームしない */
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+input, textarea { -webkit-user-select: text; user-select: text; }
+
+button, input, select { font: inherit; color: inherit; }
+
+button { cursor: pointer; }
+
+ruby rt { font-size: 0.5em; color: inherit; opacity: 0.8; font-weight: normal; }
+
+#main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: calc(16px + env(safe-area-inset-top)) 20px calc(var(--tabbar-h) + 24px + env(safe-area-inset-bottom));
+}
+
+.view { animation: fadein 0.2s ease; }
+@keyframes fadein { from { transform: translateY(6px); } to { transform: none; } }
+
+.view-title { font-size: 1.4rem; margin: 0 0 12px; text-align: center; }
+
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  margin-bottom: 16px;
+  border: none;
+  text-align: left;
+  width: 100%;
+}
+.card-title { font-size: 1.05rem; margin: 0 0 12px; }
+
+.muted { color: var(--muted); font-size: 0.9rem; }
+.hint { text-align: center; color: var(--muted); font-size: 0.9rem; }
+
+/* ---- ボタン ---- */
+.btn {
+  min-height: var(--tap);
+  padding: 8px 24px;
+  border-radius: 999px;
+  border: 2px solid var(--line);
+  background: var(--surface);
+  font-weight: bold;
+  /* flex にしない：<ruby> が別アイテム扱いになり、すき間や空白の消失が起きるため */
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1.9;
+  transition: transform 0.08s;
+}
+.btn:active, .btn-round:active, .cat:active, .numpad-key:active { transform: scale(0.95); }
+.btn-primary { background: var(--primary); border-color: var(--primary); color: #fff; box-shadow: 0 4px 0 var(--primary-dark); }
+.btn-danger  { background: var(--danger); border-color: var(--danger); color: #fff; }
+.btn-income  { background: var(--income); border-color: var(--income); color: #fff; }
+.btn-expense { background: var(--expense); border-color: var(--expense); color: #fff; }
+.btn-plain   { background: var(--surface); }
+
+.btn-round {
+  width: var(--tap); height: var(--tap);
+  border-radius: 50%;
+  border: 2px solid var(--line);
+  background: var(--surface);
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.link-btn {
+  background: none; border: none; color: var(--primary-dark);
+  text-decoration: underline; padding: 8px; min-height: 44px;
+}
+
+.row { display: flex; gap: 12px; align-items: center; }
+.row.wrap { flex-wrap: wrap; }
+
+input[type="text"] {
+  min-height: var(--tap);
+  padding: 8px 16px;
+  border-radius: 14px;
+  border: 2px solid var(--line);
+  background: #fffdf9;
+  font-size: 1.1rem; /* 16px 以上にして iOS の自動ズームを防ぐ */
+  width: 100%;
+}
+input[type="text"]:focus { outline: 3px solid #ffd2a8; border-color: var(--primary); }
+
+/* ---- タブバー ---- */
+.tabbar {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  height: calc(var(--tabbar-h) + env(safe-area-inset-bottom));
+  padding-bottom: env(safe-area-inset-bottom);
+  background: var(--surface);
+  border-top: 2px solid var(--line);
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+}
+.tab {
+  flex: 1;
+  max-width: 160px;
+  border: none;
+  background: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.3;
+}
+.tab-icon { font-size: 1.7rem; line-height: 1.1; }
+.tab-label { line-height: 2; } /* ふりがなの有無で高さがずれないように */
+.tab.active { color: var(--primary-dark); font-weight: bold; }
+.tab.active .tab-icon { transform: scale(1.15); }
+
+/* ---- モーダル ---- */
+.modal-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(60, 40, 20, 0.45);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+  z-index: 100;
+  animation: fadein 0.15s ease;
+}
+.modal-backdrop.closing { opacity: 0; transition: opacity 0.15s; }
+.modal {
+  background: var(--surface);
+  border-radius: 28px;
+  padding: 28px;
+  width: min(560px, 100%);
+  max-height: 90vh;
+  overflow: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+}
+.modal-title { margin: 0 0 12px; font-size: 1.3rem; text-align: center; }
+.modal-message { font-size: 1.15rem; text-align: center; margin: 8px 0 20px; }
+.modal-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 16px; }
+.modal-buttons .btn { flex: 1 1 140px; }
+
+/* ---- トースト ---- */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(var(--tabbar-h) + 20px + env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  background: #3b2f2a;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 999px;
+  z-index: 200;
+  font-weight: bold;
+  max-width: 90vw;
+  text-align: center;
+  animation: toastin 0.2s ease;
+}
+.toast.error { background: var(--danger); }
+@keyframes toastin { from { opacity: 0; transform: translate(-50%, 10px); } to { opacity: 1; transform: translate(-50%, 0); } }
