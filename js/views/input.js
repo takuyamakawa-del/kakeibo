@@ -46,10 +46,10 @@ export function render(root, { store, navigate, params }) {
           <div class="date-row">
             <button type="button" class="chip" data-date="${today}">${t('今日')}</button>
             <button type="button" class="chip" data-date="${addDays(today, -1)}">${t('昨日')}</button>
-            <label class="chip chip-date">
+            <button type="button" class="chip chip-date">
               <span class="date-label"></span>
-              <input type="date" class="date-input" max="${today}" value="${form.date}">
-            </label>
+              <input type="date" class="date-input" max="${today}" value="${form.date}" tabindex="-1" aria-hidden="true">
+            </button>
           </div>
 
           <p class="field-label">メモ（なくてもいいよ）</p>
@@ -99,6 +99,16 @@ export function render(root, { store, navigate, params }) {
     root.querySelectorAll('.cat').forEach((x) => x.classList.toggle('active', x === b));
   });
   on(root, 'click', '.chip[data-date]', (_e, b) => { form.date = b.dataset.date; $('.date-input').value = form.date; drawDate(); });
+  // 「日付を選ぶ」：日付の選択画面をプログラムから開く。
+  // （透明な入力欄を重ねる方式だと、PC の Chrome/Edge では右端のアイコン以外を押しても開かないため）
+  on(root, 'click', '.chip-date', () => {
+    const el = $('.date-input');
+    try {
+      if (typeof el.showPicker === 'function') return el.showPicker();
+    } catch { /* 古いブラウザ等は下の方法で開く */ }
+    el.focus();
+    el.click();
+  });
   $('.date-input').addEventListener('change', (e) => {
     const v = e.target.value;
     if (v && v <= today) form.date = v;
