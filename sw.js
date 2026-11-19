@@ -1,7 +1,7 @@
 // Service Worker：ネットワーク優先、つながらないときはキャッシュを使う。
 // ファイル一覧を持たない方式なので、ファイルを追加・変更しても編集不要（更新もすぐ反映される）。
 // 一度でも開いたファイルはオフラインでも使える。
-const CACHE = 'kodomo-kakeibo-v1';
+const CACHE = 'kodomo-kakeibo-v2';
 
 self.addEventListener('install', () => self.skipWaiting());
 
@@ -19,7 +19,8 @@ self.addEventListener('fetch', (e) => {
   e.respondWith((async () => {
     const cache = await caches.open(CACHE);
     try {
-      const res = await fetch(req);
+      // cache: 'no-cache' … ブラウザの HTTP キャッシュを使わず毎回サーバーに更新を確認する（更新がすぐ反映されるように）
+      const res = await fetch(req, { cache: 'no-cache' });
       if (res.ok) cache.put(req, res.clone());
       return res;
     } catch {

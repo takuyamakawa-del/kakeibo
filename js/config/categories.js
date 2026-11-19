@@ -9,6 +9,7 @@ export const CATEGORIES = {
     { id: 'book',       label: '本・まんが', icon: '📚', color: '#4b7bec' },
     { id: 'game',       label: 'ゲーム',     icon: '🎮', color: '#8854d0' },
     { id: 'stationery', label: '文房具',     icon: '✏️', color: '#20bf6b' },
+    { id: 'dozle',      label: 'ドズル社グッズ', icon: '🛍️', color: '#e67e22' },
     { id: 'other_out',  label: 'その他',     icon: '💭', color: '#a5b1c2' },
   ],
   income: [
