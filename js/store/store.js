@@ -10,7 +10,7 @@ export const MAX_MEMO = 30;
 export function defaultState() {
   return {
     schemaVersion: SCHEMA_VERSION,
-    settings: { childName: '' },
+    settings: { childName: '', monthlyGoal: 0 }, // monthlyGoal: 毎月の使用目標（円）。0 = 目標なし
     transactions: [],
     noSpendDays: [],
     meta: { lastSeenStage: 0 },
@@ -42,11 +42,14 @@ export function migrate(data) {
     meta: { ...base.meta, ...d.meta },
   };
   if (!Array.isArray(out.transactions) || !Array.isArray(out.noSpendDays)) throw new Error('invalid data');
+  if (!isValidGoal(out.settings.monthlyGoal)) out.settings.monthlyGoal = 0;
   out.transactions.forEach((tx) => validateTransaction(tx));
   return out;
 }
 
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+
+const isValidGoal = (n) => Number.isInteger(n) && n >= 0 && n <= MAX_AMOUNT;
 
 /** 取引の検証。不正なら例外 */
 export function validateTransaction(tx) {
@@ -151,6 +154,12 @@ export function createStore(storage, { now = () => new Date(), idGen = defaultId
 
     updateSettings(patch) {
       commit({ ...state, settings: { ...state.settings, ...patch } });
+    },
+
+    /** 毎月の使用目標（0〜999,999 の整数。0 = 目標なし）。不正なら例外 */
+    setMonthlyGoal(amount) {
+      if (!isValidGoal(amount)) throw new Error('goal');
+      commit({ ...state, settings: { ...state.settings, monthlyGoal: amount } });
     },
 
     setMeta(patch) {

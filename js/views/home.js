@@ -1,6 +1,7 @@
 // ホーム：残高・キャラ・「今日は使わなかった！」ボタン
-import { todayKey } from '../domain/dates.js';
-import { balance, hasExpenseOn } from '../domain/money.js';
+import { todayKey, monthOf } from '../domain/dates.js';
+import { balance, hasExpenseOn, monthTotals } from '../domain/money.js';
+import { usage } from '../domain/budget.js';
 import { totalNoSpend, currentStreak } from '../domain/noSpend.js';
 import { stageInfo, activeBonuses } from '../domain/growth.js';
 import { CHARACTER_NAME } from '../config/growth.js';
@@ -9,6 +10,15 @@ import { esc, on } from '../ui/dom.js';
 import { money, days, dateLabel } from '../ui/format.js';
 import { renderCharacter } from '../ui/character.js';
 import { confirmDialog, toast } from '../ui/dialog.js';
+
+/** 今月の目標に対する「あといくら」（目標があるときだけ） */
+function budgetLine(s, today) {
+  const u = usage(monthTotals(s.transactions, monthOf(today)).expense, s.settings.monthlyGoal);
+  if (!u) return '';
+  return u.over
+    ? `<p class="budget-line over">⚠ ${t('今月は目標を')}${money(-u.remaining)}オーバー</p>`
+    : `<p class="budget-line">${t('今月')}あと <strong>${money(u.remaining)}</strong> つかえるよ</p>`;
+}
 
 export function render(root, { store, navigate }) {
   const draw = () => {
@@ -46,6 +56,7 @@ export function render(root, { store, navigate }) {
           <div class="card balance-card">
             <p class="card-label">${t('今のお金')}</p>
             <p class="balance">${money(balance(s.transactions))}</p>
+            ${budgetLine(s, today)}
             <div class="quick-buttons">
               <button type="button" class="btn btn-expense" data-act="expense">${t('使った')}</button>
               <button type="button" class="btn btn-income" data-act="income">もらった</button>

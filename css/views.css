@@ -225,3 +225,52 @@
 /* ===== 設定 ===== */
 .view-settings { max-width: 720px; margin: 0 auto; }
 .danger-zone .card-title { color: var(--danger); }
+
+/* ===== 使用目標・円グラフ（一覧） ===== */
+.period-toggle { max-width: 320px; margin-bottom: 8px; }
+.period-toggle .seg.active { background: var(--primary); color: #fff; }
+
+.budget-grid { display: grid; grid-template-columns: 1fr; gap: 16px; align-items: center; justify-items: center; }
+@media (min-width: 760px) { .budget-grid { grid-template-columns: 260px 1fr; justify-items: stretch; } }
+.budget-side { width: 100%; }
+
+.donut-wrap { position: relative; width: 240px; height: 240px; }
+.donut { width: 100%; height: 100%; display: block; }
+.donut-seg { cursor: pointer; transition: opacity 0.15s; }
+.donut-wrap:has(.donut-seg.focus) .donut-seg:not(.focus) { opacity: 0.45; }
+.donut-center {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  pointer-events: none; line-height: 1.25; text-align: center;
+}
+.donut-label { font-size: 0.85rem; color: var(--muted); }
+.donut-rate { font-size: 2.4rem; font-weight: bold; }
+.donut-sub { font-size: 0.9rem; color: var(--muted); }
+.donut-over { font-size: 0.9rem; font-weight: bold; color: var(--danger); }
+.donut-wrap.over .donut-rate { color: var(--danger); }
+
+.goal-line { margin: 0 0 8px; font-weight: bold; }
+.goal-hint { margin: 0 0 12px; }
+.donut-caption { margin: 10px 0 0; min-height: 2.4em; color: var(--muted); font-size: 0.95rem; }
+
+.legend .bar-row { cursor: pointer; border-radius: 10px; padding: 2px 4px; }
+.legend .bar-row.focus { background: #fff3e4; }
+.swatch { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: 0; }
+
+.month-list { list-style: none; padding: 0; margin: 0; }
+.month-row {
+  width: 100%; min-height: 48px; display: grid; grid-template-columns: 3.5em 1fr 7em; gap: 10px; align-items: center;
+  background: none; border: none; border-bottom: 1px dashed var(--line); padding: 4px; text-align: left;
+}
+.month-row .bar { position: relative; overflow: visible; }
+.month-row .bar-fill { background: var(--primary); }
+.month-row.over .bar-value { color: var(--danger); }
+.goal-mark { position: absolute; top: -4px; bottom: -4px; width: 2px; background: #3b2f2a; border-radius: 1px; }
+.goal-mark-sample { display: inline-block; width: 2px; height: 14px; background: #3b2f2a; vertical-align: -2px; }
+.month-legend { margin-top: 8px; }
+
+/* ===== 使用目標（ホーム・設定） ===== */
+.budget-line { margin: -4px 0 12px; color: var(--muted); }
+.budget-line strong { color: var(--text); font-size: 1.2rem; }
+.budget-line.over { color: var(--danger); font-weight: bold; }
+.goal-input { max-width: 200px; text-align: right; }
+.unit { font-weight: bold; }

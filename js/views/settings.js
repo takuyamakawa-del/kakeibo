@@ -20,6 +20,17 @@ export function render(root, { store, navigate }) {
       </div>
 
       <div class="card">
+        <h2 class="card-title">🎯 ${t('1か月に使う目標')}</h2>
+        <p class="muted">${t('毎月この金額までに使うのを目標にします。0にすると目標なしになります。')}</p>
+        <div class="row">
+          <input type="text" class="goal-input" inputmode="numeric" pattern="[0-9]*" maxlength="6"
+            value="${s.settings.monthlyGoal || ''}" placeholder="れい：500">
+          <span class="unit">${t('円')}</span>
+          <button type="button" class="btn btn-primary" data-act="goal">${t('保存')}</button>
+        </div>
+      </div>
+
+      <div class="card">
         <h2 class="card-title">バックアップ <small>（おうちの${t('人')}と）</small></h2>
         <p class="muted">${t('データはこのiPadの中だけに保存されています。ときどき書き出しておくと安心です。')}</p>
         <div class="row wrap">
@@ -37,6 +48,17 @@ export function render(root, { store, navigate }) {
 
   on(root, 'click', '[data-act]', async (_e, el) => {
     switch (el.dataset.act) {
+      case 'goal': {
+        const raw = root.querySelector('.goal-input').value.trim().replace(/[０-９]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0xfee0));
+        const amount = raw === '' ? 0 : Number(raw);
+        try {
+          store.setMonthlyGoal(amount);
+          toast(amount ? '目標を保存しました' : '目標をなしにしました');
+        } catch {
+          toast('0〜999999の数字で入れてね', { kind: 'error' });
+        }
+        break;
+      }
       case 'name': {
         store.updateSettings({ childName: root.querySelector('.name-input').value.trim() });
         toast('保存しました');
